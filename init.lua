@@ -8,6 +8,8 @@ vim.keymap.set('n', '<C-s>', ':w<CR>', { silent = true, desc = 'Make Ctrl + s do
 
 vim.opt.fillchars:append { eob = ' ' }
 
+vim.o.hlsearch = false
+
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
@@ -29,11 +31,7 @@ vim.keymap.set('n', '<leader>ls', function()
     vim.cmd 'startinsert'
 end, { desc = 'Open terminal in vertical split' })
 
-vim.keymap.set('n', '<leader>*', function()
-    vim.fn.setreg('/', '\\<' .. vim.fn.expand '<cword>' .. '\\>')
-    vim.o.hlsearch = true
-    vim.cmd 'redraw'
-end, { desc = 'Search word under cursor' })
+vim.keymap.set('n', '<leader>*', function() vim.fn.setreg('/', '\\<' .. vim.fn.expand '<cword>' .. '\\>') end, { desc = 'Search word under cursor' })
 
 vim.g.have_nerd_font = true
 
