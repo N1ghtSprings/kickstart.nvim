@@ -31,6 +31,8 @@ vim.keymap.set('n', '<leader>ls', function()
     vim.cmd 'startinsert'
 end, { desc = 'Open terminal in vertical split' })
 
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition (LSP)' })
+
 vim.keymap.set('n', '<leader>*', function() vim.fn.setreg('/', '\\<' .. vim.fn.expand '<cword>' .. '\\>') end, { desc = 'Search word under cursor' })
 
 vim.g.have_nerd_font = true
